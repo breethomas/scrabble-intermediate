@@ -63,8 +63,6 @@ class PlayerTest < MiniTest::Unit::TestCase
     @player2.add_letters('r', 'b', 'c', 'a', 'a', 'o', 't')
     @player.plays("quip")
     @player2.plays("taco")
-    @player.plays("yak")
-    @player2.plays("bar")
     assert_equal true, @player.leading?(@player2)
     refute @player2.leading?(@player)
   end
