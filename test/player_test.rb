@@ -48,6 +48,13 @@ class PlayerTest < MiniTest::Unit::TestCase
   def test_player_can_play_the_same_letter_multiple_times_in_a_single_word
     @player.add_letters('a','a', 'r', 'd', 'v', 'a', 'r', 'k')
     assert_equal true, @player.can_play?("aardvark")
+    assert_equal false, @player.can_play?("aaaaa")
+  end
+
+  def test_player_plays_letters
+    @player.add_letters('u', 'h', 'g', 'j', 'i', 'x')
+    @player.plays('hi')
+    assert_equal ['u', 'g', 'j', 'x'], @player.letters
   end
 end
 

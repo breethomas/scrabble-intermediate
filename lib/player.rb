@@ -11,9 +11,12 @@ class Player
   end
 
   def plays(word)
+    played_letters = word.chars
+    @letters.delete(played_letters)
     word_score = Scrabble.score(word)
     @score = @score + word_score
     word_score
+
   end
 
   def add_letters(*letters)
@@ -27,11 +30,6 @@ class Player
       bank.slice!(index)
     end
     true
-    #copy o' bank
-    #iterate thru word.chars
-    #pull each char from bank
-    #if nil then false
-
   end
   
 end
