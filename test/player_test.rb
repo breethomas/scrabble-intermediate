@@ -59,7 +59,6 @@ class PlayerTest < MiniTest::Unit::TestCase
   end
 
   def test_leading_player
-    skip
     @player.add_letters('a', 'k', 'p', 'i', 'u', 'q', 'y')
     @player2.add_letters('r', 'b', 'c', 'a', 'a', 'o', 't')
     @player.plays("quip")

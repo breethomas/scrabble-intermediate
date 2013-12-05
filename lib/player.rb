@@ -39,8 +39,7 @@ class Player
     true
   end
 
- # def leading?(player)
-
- # end
-  
+  def leading?(player2)
+    score > player2.score
+  end
 end
