@@ -13,12 +13,12 @@ class Player
   def plays(word)
     remove_played_letters(word)
     word_score = Scrabble.score(word)
-    @score = @score + word_score
+    @score = score + word_score
     word_score
   end
 
   def remove_played_letters(word)
-    bank = @letters
+    bank = letters
     word.chars.each do |c|
       return false unless index = bank.index(c)
       bank.slice!(index)
@@ -31,7 +31,7 @@ class Player
   end
 
   def can_play?(word)
-    bank = @letters.dup
+    bank = letters.dup
     word.chars.each do |c|
       return false unless index = bank.index(c)
       bank.slice!(index)
@@ -39,7 +39,7 @@ class Player
     true
   end
 
-  def leading?(player2)
-    score > player2.score
+  def leading?(player)
+    score > player.score
   end
 end
