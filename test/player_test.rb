@@ -8,6 +8,7 @@ class PlayerTest < MiniTest::Unit::TestCase
 
   def setup
     @player = Player.new("Frank")
+    @player2 = Player.new("Katrina")
   end
 
   def test_player_has_name
@@ -55,6 +56,18 @@ class PlayerTest < MiniTest::Unit::TestCase
     @player.add_letters('u', 'h', 'g', 'j', 'i', 'x')
     @player.plays('hi')
     assert_equal ['u', 'g', 'j', 'x'], @player.letters
+  end
+
+  def test_leading_player
+    skip
+    @player.add_letters('a', 'k', 'p', 'i', 'u', 'q', 'y')
+    @player2.add_letters('r', 'b', 'c', 'a', 'a', 'o', 't')
+    @player.plays("quip")
+    @player2.plays("taco")
+    @player.plays("yak")
+    @player2.plays("bar")
+    assert_equal true, @player.leading?(@player2)
+    refute @player2.leading?(@player)
   end
 end
 
